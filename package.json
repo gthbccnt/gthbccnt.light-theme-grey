@@ -1,0 +1,29 @@
+{
+  "name": "light-theme-grey",
+  "displayName": "Light Theme Grey",
+  "description": "A custom light grey theme for Visual Studio Code",
+  "version": "1.0.2",
+  "publisher": "gthbccnt",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Light Theme Grey",
+        "uiTheme": "vs",
+        "path": "./themes/light-theme-grey.json"
+      }
+    ]
+  },
+  "__metadata": {
+    "isApplicationScoped": false,
+    "installedTimestamp": 1730743848742,
+    "pinned": true,
+    "source": "vsix",
+    "size": 129270
+  }
+}
