@@ -19,6 +19,13 @@
       }
     ]
   },
+  "files": [
+  "images/",
+  "themes/",
+  "README.md",
+  "test.js",
+  "package.json"
+],
   "__metadata": {
     "isApplicationScoped": false,
     "installedTimestamp": 1730743848742,
