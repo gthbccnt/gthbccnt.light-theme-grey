@@ -2,7 +2,7 @@
   "name": "light-theme-grey",
   "displayName": "Light Theme Grey",
   "description": "A custom light grey theme for Visual Studio Code",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "publisher": "gthbccnt",
   "engines": {
     "vscode": "^1.75.0"
@@ -28,7 +28,8 @@
     "themes/",
     "test-files/",
     "README.md",
-    "package.json"
+    "package.json",
+    "LICENSE.txt"
   ],
   "__metadata": {
     "isApplicationScoped": false,
