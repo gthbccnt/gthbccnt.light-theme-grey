@@ -1,98 +1,167 @@
 /*
    Light Theme Grey - Modern UI (Glassy & Rounded)
    To use this, install the 'Custom UI Style' extension and add the path to this file
-   to your 'custom-ui-style.externalPaths' setting.
+   to your 'custom-ui-style.external.imports' setting.
 */
 
+/* Shared theme tokens used across the custom VS Code chrome. */
 :root {
-    --ltg-panel-radius: 24px;
-    --ltg-widget-radius: 16px;
-    --ltg-input-radius: 10px;
-    --ltg-item-radius: 6px;
-    --ltg-panel-gap: 10px;
-    --ltg-panel-top: 10px;
-    --ltg-bg-canvas: #e8e7e5;
-    --ltg-bg-surface: rgba(245, 244, 242, 0.85);
-    --ltg-glass-highlight: rgba(255, 255, 255, 0.7);
-    --ltg-glass-shadow: rgba(0, 0, 0, 0.05);
+  --ltg-panel-radius: 20px;
+  --ltg-widget-radius: 16px;
+  --ltg-input-radius: 15px;
+  --ltg-item-radius: 6px;
+  --ltg-panel-gap: 2px;
+  --ltg-split-gap: 6px;
+  --ltg-panel-top: 4px;
+  --ltg-bg-canvas: #e8e7e51e;
+  --ltg-gap-fill: #e8e7e5;
+  --ltg-bg-surface: rgba(245, 244, 242, 0.85);
+  --ltg-glass-highlight: rgba(255, 255, 255, 0.1);
+  --ltg-glass-shadow: rgba(0, 0, 0, 0.05);
 }
 
 .monaco-workbench {
-    background-color: var(--ltg-bg-canvas) !important;
+  background-color: var(--ltg-bg-canvas) !important;
 }
 
-/* Floating Glass Panels */
+/* The workbench grid background shows through the widened sashes as the panel gap. */
+.monaco-workbench .monaco-grid-view {
+  background-color: var(--ltg-bg-canvas) !important;
+}
+
+/* Sidebar, editor, bottom panel, and auxiliary bar outer shells. */
 .part.sidebar,
 .part.editor,
 .part.panel.bottom,
 .part.auxiliarybar {
-    margin: var(--ltg-panel-top) var(--ltg-panel-gap) var(--ltg-panel-gap) var(--ltg-panel-gap) !important;
-    border-radius: var(--ltg-panel-radius) !important;
-    overflow: hidden !important;
-    background-color: var(--ltg-bg-surface) !important;
-    backdrop-filter: blur(10px) !important;
+  border-radius: var(--ltg-panel-radius) !important;
+  overflow: hidden !important;
 
-    /* Directional Borders */
-    border-top: 1px solid var(--ltg-glass-highlight) !important;
-    border-left: 1px solid var(--ltg-glass-highlight) !important;
-    border-bottom: 1px solid var(--ltg-glass-shadow) !important;
-    border-right: 1px solid var(--ltg-glass-shadow) !important;
+  /* Directional Borders */
+  border-top: 1px solid var(--ltg-glass-highlight) !important;
+  border-left: 1px solid var(--ltg-glass-highlight) !important;
+  border-bottom: 1px solid var(--ltg-glass-shadow) !important;
+  border-right: 1px solid var(--ltg-glass-shadow) !important;
 
-    /* Elevation Shadow */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+  /* Elevation Shadow */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Fix for editor content padding when floating */
+/* Top-aligned workbench parts keep the smaller top inset. */
+.part.sidebar,
+.part.editor,
+.part.auxiliarybar {
+  margin: var(--ltg-panel-top) var(--ltg-panel-gap) var(--ltg-panel-gap)
+    var(--ltg-panel-gap) !important;
+}
+
+/* Fake the editor-to-panel gap by painting the panel shell in the canvas color. */
+.part.panel.bottom {
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  background-color: var(--ltg-bg-surface) !important;
+  border-top: var(--ltg-split-gap) solid var(--ltg-gap-fill) !important;
+  border-left: var(--ltg-panel-gap) solid var(--ltg-gap-fill) !important;
+  border-right: var(--ltg-panel-gap) solid var(--ltg-gap-fill) !important;
+  border-bottom: none !important;
+  box-shadow:
+    inset 0 1px 0 0 var(--ltg-glass-highlight),
+    inset 1px 0 0 0 var(--ltg-glass-highlight),
+    inset -1px 0 0 0 var(--ltg-glass-shadow) !important;
+}
+
+/* Keep the panel title above the faux gap. */
+.part.panel.bottom > .composite.title {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Pull the panel content back up so only the top border reads as spacing. */
+.part.panel.bottom > .content {
+  margin-top: calc(var(--ltg-split-gap) * -1) !important;
+  position: relative !important;
+  border-radius: 0 0 calc(var(--ltg-panel-radius) - var(--ltg-panel-gap))
+    calc(var(--ltg-panel-radius) - var(--ltg-panel-gap)) !important;
+  overflow: hidden !important;
+}
+
+.part.panel.bottom .tabs-container,
+.part.panel.bottom .pane,
+.part.panel.bottom .pane-body,
+.part.panel.bottom .split-view-view,
+.part.panel.bottom .composite,
+.part.panel.bottom .monaco-pane-view,
+.part.panel.bottom .output-view {
+  border-bottom: none !important;
+}
+
+/* Remove extra inner padding so the editor panel sits flush in its rounded shell. */
 .part.editor > .content {
-    padding: 0 !important;
+  padding: 0 !important;
 }
 
-/* Pill-shaped Activity Bar */
+/* Activity bar column background. */
 .part.activitybar {
-    background-color: var(--ltg-bg-canvas) !important;
+  background-color: transparent !important;
+  margin-top: var(--ltg-panel-top) !important;
+  /* height: calc(100% - var(--ltg-panel-top) * 2) !important; */
+  /* border: solid 1pt red; */
 }
 
+/* Activity bar icon strip styled as a floating glass pill. */
 .part.activitybar .composite-bar {
-    background: rgba(255, 255, 255, 0.4) !important;
-    backdrop-filter: blur(5px) !important;
-    border-radius: 999px !important;
-    margin: 10px 6px !important;
-    padding: 4px 2px !important;
-    border: 1px solid var(--ltg-glass-highlight) !important;
-    box-shadow: inset 0 1px 3px rgba(255,255,255,0.5), 0 2px 8px rgba(0,0,0,0.05) !important;
+  margin-left: var(--ltg-panel-gap);
+  backdrop-filter: blur(5px) !important;
+  border-radius: 999px !important;
+  overflow: clip;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid red !important; */
+  background: oklch(100% 0 0 / 5%) !important;
+  border: 1px solid var(--ltg-glass-highlight) !important;
+  box-shadow:
+    inset 0 1px 3px rgba(255, 255, 255, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.05) !important;
 }
 
-/* Rounded Buttons & Inputs */
+/* Shared radius for buttons and input fields. */
 .monaco-button,
 .monaco-inputbox,
 .scm-input {
-    border-radius: var(--ltg-input-radius) !important;
+  border-radius: var(--ltg-input-radius) !important;
 }
 
-/* Rounded List Items */
+/* List rows such as explorer/search entries. */
 .monaco-list-row {
-    border-radius: var(--ltg-item-radius) !important;
-    margin-left: 4px !important;
-    margin-right: 4px !important;
-    width: calc(100% - 8px) !important;
+  border-radius: var(--ltg-item-radius) !important;
+  margin-left: 4px !important;
+  margin-right: 4px !important;
+  width: calc(100% - 8px) !important;
 }
 
-/* Rounded Command Palette & Toasts */
+/* Floating overlays like quick input, notifications, and hover tooltips. */
 .quick-input-widget,
 .notification-toast,
 .monaco-hover {
-    border-radius: var(--ltg-widget-radius) !important;
-    border: 1px solid var(--ltg-glass-highlight) !important;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.15) !important;
+  border-radius: var(--ltg-widget-radius) !important;
+  border: 1px solid var(--ltg-glass-highlight) !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15) !important;
 }
 
-/* Status Bar & Title Bar Clean up */
+/* Keep the title bar and status bar visually blended into the canvas. */
 .part.statusbar,
 .part.titlebar {
-    background-color: var(--ltg-bg-canvas) !important;
+  border-radius: 999px;
+  background: oklch(100% 0 0 / 5%) !important;
+  border: 1px solid var(--ltg-glass-highlight) !important;
+  box-shadow:
+    inset 0 1px 3px rgba(255, 255, 255, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.05) !important;
 }
 
+/* Rounded command center capsule in the title bar. */
 .command-center-center {
-    border-radius: 999px !important;
-    background: rgba(255, 255, 255, 0.5) !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.2) !important;
 }
