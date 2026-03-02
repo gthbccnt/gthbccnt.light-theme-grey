@@ -1,0 +1,98 @@
+/*
+   Light Theme Grey - Modern UI (Glassy & Rounded)
+   To use this, install the 'Custom UI Style' extension and add the path to this file
+   to your 'custom-ui-style.externalPaths' setting.
+*/
+
+:root {
+    --ltg-panel-radius: 24px;
+    --ltg-widget-radius: 16px;
+    --ltg-input-radius: 10px;
+    --ltg-item-radius: 6px;
+    --ltg-panel-gap: 10px;
+    --ltg-panel-top: 10px;
+    --ltg-bg-canvas: #e8e7e5;
+    --ltg-bg-surface: rgba(245, 244, 242, 0.85);
+    --ltg-glass-highlight: rgba(255, 255, 255, 0.7);
+    --ltg-glass-shadow: rgba(0, 0, 0, 0.05);
+}
+
+.monaco-workbench {
+    background-color: var(--ltg-bg-canvas) !important;
+}
+
+/* Floating Glass Panels */
+.part.sidebar,
+.part.editor,
+.part.panel.bottom,
+.part.auxiliarybar {
+    margin: var(--ltg-panel-top) var(--ltg-panel-gap) var(--ltg-panel-gap) var(--ltg-panel-gap) !important;
+    border-radius: var(--ltg-panel-radius) !important;
+    overflow: hidden !important;
+    background-color: var(--ltg-bg-surface) !important;
+    backdrop-filter: blur(10px) !important;
+
+    /* Directional Borders */
+    border-top: 1px solid var(--ltg-glass-highlight) !important;
+    border-left: 1px solid var(--ltg-glass-highlight) !important;
+    border-bottom: 1px solid var(--ltg-glass-shadow) !important;
+    border-right: 1px solid var(--ltg-glass-shadow) !important;
+
+    /* Elevation Shadow */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Fix for editor content padding when floating */
+.part.editor > .content {
+    padding: 0 !important;
+}
+
+/* Pill-shaped Activity Bar */
+.part.activitybar {
+    background-color: var(--ltg-bg-canvas) !important;
+}
+
+.part.activitybar .composite-bar {
+    background: rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(5px) !important;
+    border-radius: 999px !important;
+    margin: 10px 6px !important;
+    padding: 4px 2px !important;
+    border: 1px solid var(--ltg-glass-highlight) !important;
+    box-shadow: inset 0 1px 3px rgba(255,255,255,0.5), 0 2px 8px rgba(0,0,0,0.05) !important;
+}
+
+/* Rounded Buttons & Inputs */
+.monaco-button,
+.monaco-inputbox,
+.scm-input {
+    border-radius: var(--ltg-input-radius) !important;
+}
+
+/* Rounded List Items */
+.monaco-list-row {
+    border-radius: var(--ltg-item-radius) !important;
+    margin-left: 4px !important;
+    margin-right: 4px !important;
+    width: calc(100% - 8px) !important;
+}
+
+/* Rounded Command Palette & Toasts */
+.quick-input-widget,
+.notification-toast,
+.monaco-hover {
+    border-radius: var(--ltg-widget-radius) !important;
+    border: 1px solid var(--ltg-glass-highlight) !important;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.15) !important;
+}
+
+/* Status Bar & Title Bar Clean up */
+.part.statusbar,
+.part.titlebar {
+    background-color: var(--ltg-bg-canvas) !important;
+}
+
+.command-center-center {
+    border-radius: 999px !important;
+    background: rgba(255, 255, 255, 0.5) !important;
+}

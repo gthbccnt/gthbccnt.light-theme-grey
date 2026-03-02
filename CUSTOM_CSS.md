@@ -6,7 +6,20 @@ To achieve the modern "floating panel" look with rounded corners, shadows, and e
 
 1. **Install the Extension**: Install [Custom UI Style](https://marketplace.visualstudio.com/items?itemName=subframe7536.custom-ui-style) from the VS Code Marketplace.
 2. **Open Settings**: Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on macOS) and type "Open User Settings (JSON)".
-3. **Add the Stylesheet**: Copy and paste the following block into your `settings.json` file:
+
+### Option A: Use the Pre-built CSS File (Recommended)
+
+This theme includes a pre-built CSS file at `styles/modern-ui.css`. You can link to it directly:
+
+```json
+  "custom-ui-style.externalPaths": [
+    "file:///path/to/your/extensions/gthbccnt.light-theme-grey-1.0.4/styles/modern-ui.css"
+  ]
+```
+
+### Option B: Manual Configuration
+
+Alternatively, copy and paste this block into your `settings.json`:
 
 ```json
   "custom-ui-style.stylesheet": {
@@ -106,6 +119,12 @@ You can easily adjust the look by changing the variables at the top of the CSS b
 For an even more refined look with "frosted glass" blur and directional light effects (top-left highlights), check out our:
 
 👉 [Advanced Glass Panel Guide](GLASS_PANEL_GUIDE.md)
+
+### ⚪ Ultra-Rounded Look (32px+)
+
+If you want the extreme "Islands" aesthetic with large 32px corners, check out our:
+
+👉 [Ultra-Rounded Guide](ULTRA_ROUNDED_GUIDE.md)
 
 ---
 *Note: This styling works best when using the **Light Theme Grey** color theme.*
