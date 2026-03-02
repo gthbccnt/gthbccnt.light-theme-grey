@@ -100,4 +100,12 @@ You can easily adjust the look by changing the variables at the top of the CSS b
 - `--ltg-bg-canvas`: The background color visible "behind" the floating panels.
 
 ---
+
+### 🎨 Advanced: Glass Panels & Light Source Simulation
+
+For an even more refined look with "frosted glass" blur and directional light effects (top-left highlights), check out our:
+
+👉 [Advanced Glass Panel Guide](GLASS_PANEL_GUIDE.md)
+
+---
 *Note: This styling works best when using the **Light Theme Grey** color theme.*
