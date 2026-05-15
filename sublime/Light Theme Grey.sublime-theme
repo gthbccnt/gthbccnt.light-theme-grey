@@ -1,0 +1,290 @@
+{
+  "extends": "Default.sublime-theme",
+  "variables": {
+    "bg": "#f5f4f2",
+    "bg_alt": "#f3f3f3",
+    "bg_hover": "#eae9e8",
+    "bg_selected": "#e2e2e2",
+    "fg": "#333333",
+    "fg_strong": "#000000",
+    "fg_muted": "#616161",
+    "fg_soft": "#333333bb",
+    "border": "#d5d5d5",
+    "border_strong": "#363636",
+    "border_soft": "#36363620",
+    "border_panel": "#36363650",
+    "input_bg": "#ffffff",
+    "button_bg": "#007acc",
+    "button_bg_hover": "#0062a3",
+    "button_fg": "#ffffff",
+    "scrollbar": "#64646466",
+    "scrollbar_hover": "#646464b3",
+    "scrollbar_pressed": "#00000099",
+    "match": "#343434",
+    "accent": "#1f98d3"
+  },
+  "rules": [
+    {
+      "class": "title_bar",
+      "platforms": ["osx"],
+      "style": "light",
+      "bg": "var(bg)",
+      "fg": "var(fg)"
+    },
+    {
+      "class": "sidebar_container",
+      "layer0.tint": "var(bg)",
+      "content_margin": [0, 8, 0, 0]
+    },
+    {
+      "class": "sidebar_tree",
+      "indent": 14,
+      "indent_offset": 16,
+      "spacer_rows": true
+    },
+    {
+      "class": "sidebar_heading",
+      "color": "var(fg_muted)",
+      "font.bold": true,
+      "case": "upper"
+    },
+    {
+      "class": "sidebar_label",
+      "color": "var(fg)"
+    },
+    {
+      "class": "sidebar_label",
+      "parents": [
+        {
+          "class": "tree_row",
+          "attributes": ["selected"]
+        }
+      ],
+      "color": "var(fg_strong)"
+    },
+    {
+      "class": "file_system_entry",
+      "content_margin": [8, 3, 8, 3],
+      "spacing": 6
+    },
+    {
+      "class": "tabset_control",
+      "layer0.tint": "var(bg)",
+      "content_margin": [8, 0, 8, 0],
+      "tab_overlap": 0,
+      "tab_height": 34,
+      "tab_min_width": 96,
+      "tab_width": 180
+    },
+    {
+      "class": "tab_control",
+      "layer0.tint": "var(bg)",
+      "layer1.tint": "var(border_soft)",
+      "content_margin": [14, 8, 14, 8]
+    },
+    {
+      "class": "tab_control",
+      "attributes": ["hover"],
+      "layer0.tint": "var(bg_hover)"
+    },
+    {
+      "class": "tab_control",
+      "attributes": ["selected"],
+      "layer0.tint": "var(bg)",
+      "layer1.tint": "var(border_strong)"
+    },
+    {
+      "class": "tab_label",
+      "color": "var(fg_soft)"
+    },
+    {
+      "class": "tab_label",
+      "parents": [
+        {
+          "class": "tab_control",
+          "attributes": ["selected"]
+        }
+      ],
+      "color": "var(fg)"
+    },
+    {
+      "class": "status_bar",
+      "layer0.tint": "var(bg)",
+      "layer1.tint": "var(border_soft)",
+      "content_margin": [8, 4, 8, 4]
+    },
+    {
+      "class": "status_container",
+      "content_margin": [8, 0, 12, 0]
+    },
+    {
+      "class": "status_button",
+      "content_margin": [10, 4],
+      "min_size": [52, 0]
+    },
+    {
+      "class": "label_control",
+      "parents": [
+        {
+          "class": "status_container"
+        }
+      ],
+      "color": "var(fg_muted)"
+    },
+    {
+      "class": "label_control",
+      "parents": [
+        {
+          "class": "status_button"
+        }
+      ],
+      "color": "var(fg_muted)"
+    },
+    {
+      "class": "panel_control find_panel",
+      "layer0.tint": "var(bg)",
+      "layer1.tint": "var(border_panel)",
+      "content_margin": [12, 10, 12, 10]
+    },
+    {
+      "class": "panel_control replace_panel",
+      "layer0.tint": "var(bg)",
+      "layer1.tint": "var(border_panel)",
+      "content_margin": [12, 10, 12, 10]
+    },
+    {
+      "class": "panel_control find_in_files_panel",
+      "layer0.tint": "var(bg)",
+      "layer1.tint": "var(border_panel)",
+      "content_margin": [12, 10, 12, 10]
+    },
+    {
+      "class": "panel_control input_panel",
+      "layer0.tint": "var(bg)",
+      "layer1.tint": "var(border_panel)",
+      "content_margin": [12, 10, 12, 10]
+    },
+    {
+      "class": "panel_control console_panel",
+      "layer0.tint": "var(bg)",
+      "layer1.tint": "var(border_panel)",
+      "content_margin": [12, 10, 12, 10]
+    },
+    {
+      "class": "panel_control output_panel",
+      "layer0.tint": "var(bg)",
+      "layer1.tint": "var(border_panel)",
+      "content_margin": [12, 10, 12, 10]
+    },
+    {
+      "class": "panel_grid_control",
+      "inside_spacing": 8,
+      "outside_hspacing": 0,
+      "outside_vspacing": 0
+    },
+    {
+      "class": "overlay_control",
+      "layer0.tint": "var(bg_alt)",
+      "layer1.tint": "var(border)",
+      "content_margin": 10
+    },
+    {
+      "class": "quick_panel",
+      "dark_content": false,
+      "row_padding": [8, 6]
+    },
+    {
+      "class": "quick_panel_label",
+      "fg": "var(fg)",
+      "match_fg": "var(match)",
+      "selected_fg": "var(fg_strong)",
+      "selected_match_fg": "var(match)"
+    },
+    {
+      "class": "quick_panel_path_label",
+      "fg": "var(fg_muted)",
+      "match_fg": "var(match)",
+      "selected_fg": "var(fg_muted)",
+      "selected_match_fg": "var(match)"
+    },
+    {
+      "class": "text_line_control",
+      "layer0.tint": "var(input_bg)",
+      "layer1.tint": "var(border)",
+      "content_margin": [10, 6, 10, 6],
+      "layer1.opacity": 1.0
+    },
+    {
+      "class": "button_control",
+      "layer0.tint": "var(button_bg)",
+      "content_margin": [10, 6],
+      "min_size": [72, 0]
+    },
+    {
+      "class": "button_control",
+      "attributes": ["hover"],
+      "layer0.tint": "var(button_bg_hover)"
+    },
+    {
+      "class": "button_control",
+      "attributes": ["pressed"],
+      "layer0.tint": "var(border_strong)"
+    },
+    {
+      "class": "label_control",
+      "parents": [
+        {
+          "class": "button_control"
+        }
+      ],
+      "color": "var(button_fg)"
+    },
+    {
+      "class": "tool_tip_control",
+      "layer0.tint": "var(bg_alt)",
+      "layer1.tint": "var(border)",
+      "content_margin": [8, 6]
+    },
+    {
+      "class": "tool_tip_label_control",
+      "color": "var(fg_muted)"
+    },
+    {
+      "class": "popup_control",
+      "layer0.tint": "var(bg_alt)",
+      "layer1.tint": "var(border)"
+    },
+    {
+      "class": "popup_control auto_complete_popup",
+      "layer0.tint": "var(bg)",
+      "layer1.tint": "var(border)"
+    },
+    {
+      "class": "grid_layout_control",
+      "border_color": "var(border_soft)",
+      "border_size": 1
+    },
+    {
+      "class": "scroll_bar_control",
+      "layer0.tint": "var(scrollbar)"
+    },
+    {
+      "class": "scroll_bar_control",
+      "attributes": ["hover"],
+      "layer0.tint": "var(scrollbar_hover)"
+    },
+    {
+      "class": "scroll_bar_control",
+      "attributes": ["pressed"],
+      "layer0.tint": "var(scrollbar_pressed)"
+    },
+    {
+      "class": "scroll_track_control",
+      "layer0.tint": "#00000000"
+    },
+    {
+      "class": "scroll_corner_control",
+      "layer0.tint": "var(bg)"
+    }
+  ]
+}
