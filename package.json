@@ -27,6 +27,7 @@
     "images/",
     "themes/",
     "test-files/",
+    "styles/",
     "README.md",
     "package.json",
     "LICENSE.txt"
